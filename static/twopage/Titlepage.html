@@ -7,22 +7,24 @@
   <link rel="stylesheet" href="Titlepage.css">
 </head>
 <body>
-  <div id="root">
-    <div>
-      <p>님! 반갑습니다.<br>저에게 편지를 보내주세요!</p>
+  <form action="/inpo.html" method="post">
+    <div id="root">
+      <div>
+        <p>님! 반갑습니다.<br>저에게 편지를 보내주세요!</p>
+      </div>
+      <div>
+        <label for="Title">Title</label>
+        <input type="text" id="Title">
+      </div>
+      <div>
+        <label for="Text">Text</label>
+        <input type="text" id="Text">
+      </div>
+      <div>
+        <button id="Send">send</button>
+      </div>
     </div>
-    <div>
-      <label for="Title">Title</label>
-      <input type="text" id="Title">
-    </div>
-    <div>
-      <label for="Text">Text</label>
-      <input type="text" id="Text">
-    </div>
-    <div>
-      <button id="Send">send</button>
-    </div>
-  </div>
+  </form>
   <script src="Titlepage.js"></script>
 </body>
 </html>
