@@ -34,10 +34,22 @@ const server = http.createServer((req, res) => {
       res.end(data)
     }); 
     }else if(req.url === './inpo.html' && req.method === 'post') {
-      console.log("통신 잘됨.")
       let none = "";
       req.on('data', (chenk) => {
         none += chenk.toString();
+      })
+      req.on('end', ()=> {
+        const queryParseNone=qureyString.parse(none);
+        const {UserID} = queryParseNone
+        console.log(UserID);
+      })
+      fs.readFile('./static/twopage/Titlepage.html', (err, data) => {
+        if(err) {
+          console.log(err)
+        } else {
+        res.writeHead(200, {'Content-Type':'text/html', 'charset':'utf-8'})
+        res.end(data)
+        }
       })
     } else {
     res.writeHead(404);
