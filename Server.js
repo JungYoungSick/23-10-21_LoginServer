@@ -37,7 +37,8 @@ const server = http.createServer((req, res) => {
     res.writeHead(404);
     res.end('Not found')
   }
-})
+  //  else if (req.url === '.')
+});
 
 
 const port = 8080;
