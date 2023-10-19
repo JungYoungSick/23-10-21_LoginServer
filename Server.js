@@ -1,5 +1,6 @@
 const http = require('http')
 const fs = require('fs')
+const qureyString = require('querystring')
 
 const server = http.createServer((req, res) => {
   function serverErrerLog() {
@@ -31,12 +32,18 @@ const server = http.createServer((req, res) => {
       }
       res.writeHead(200, {'content-type':'application/javascript', 'charset':'utf-8'});
       res.end(data)
-    });
-  } else {
+    }); 
+    // }else if(req.url === './inpo.html' && req.method === 'post') {
+    //   console.log("통신 잘됨.")
+    //   let none = "";
+    //   req.on('data', (chenk) => {
+    //     none += chenk.toString();
+    //   })
+    } else {
     res.writeHead(404);
     res.end('Not found')
-  }
-})
+  }  
+});
 
 
 const port = 8080;
