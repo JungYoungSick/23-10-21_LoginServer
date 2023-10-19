@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="join.css">
 </head>
 <body>
+<form action="/login" method="post">  
   <div id="root">
     <div>
-      <form action="/login" method="get">
         <div>
           <label for="id">ID</label>
-          <input id = "id" type="text">
+          <input id = "id" type="text" name="UserID">
         </div>
         <div>
           <label for="PW">PW</label>
@@ -26,12 +26,12 @@
           <label for="Email">Email</label>
           <input id = "Email" type="email">
         </div>
-      </form>
-      <div>
-        <input type="submit" value="Sign up" class="button" src="app_T_11_2.html">
-      </div>
+        <div>
+          <input type="submit" value="Sign up" class="button">
+        </div> 
     </div>
   </div>
+</form>   
   <script src="join.js"></script>
 </body>
 </html>
