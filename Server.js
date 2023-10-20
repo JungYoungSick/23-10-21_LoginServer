@@ -49,15 +49,28 @@ const server = http.createServer((req, res) => {
         console.log(UserID);
         fs.readFile('./static/twopage/Titlepage.html', (err, data) => {
           if(err) {
-            console.log(err)
+            console.log("안돼요..")
           } else {
           res.writeHead(200, {'Content-Type':'text/html', 'charset':'utf-8'})
           res.end(data)
-          
       }
     });
     })
-
+    } else if (req.url === '/Titlepage.css' && req.method){
+      let none = "";
+      req.on('data', (chunk) => {
+      none += chunk.toString();
+    })
+    req.on('end', () => {
+      fs.readFile('./static/twopage/Titlepage.css', (err, data) => {
+        if(err) {
+          console.log(err)
+        } else {
+          res.writeHead(200, {'content-Type':'text/css', 'charset':'utf-8'})
+          res.end(data)
+        }
+      })
+    })
     } else {
     res.writeHead(404);
     res.end('Not found')
