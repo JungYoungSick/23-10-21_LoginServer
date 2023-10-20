@@ -47,7 +47,7 @@ const server = http.createServer((req, res) => {
         const queryParseNone=qureyString.parse(none);
         const {UserID} = queryParseNone
         console.log(UserID);
-        fs.readFile('/static/twopage/Titlepage.html', (err, data) => {
+        fs.readFile('./static/twopage/Titlepage.html', (err, data) => {
           if(err) {
             console.log(err)
           } else {
@@ -57,7 +57,6 @@ const server = http.createServer((req, res) => {
       }
     });
     })
-    } else if {
 
     } else {
     res.writeHead(404);
