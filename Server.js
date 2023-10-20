@@ -38,7 +38,7 @@ const server = http.createServer((req, res) => {
       res.end(data)
     }); 
     //! Titlepage.html 페이지 활성화를 위한 post방식 페이지 불러오기[구동 실패]
-    }else if(req.url === '/Titlepage.html' && req.method === 'post') {
+    }else if(req.url === '/Titlepage.html' && req.method === 'POST') {
       let none = "";
       req.on('data', (chenk) => {
         none += chenk.toString();
@@ -48,15 +48,14 @@ const server = http.createServer((req, res) => {
         const queryParseNone=qureyString.parse(none);
         const {UserID} = queryParseNone
         console.log(UserID);
+        fs.readFile('/static/twopage/Titlepage.html', (err, data) => {
+          if(err) {
+            console.log(err)
+          } else {
+          res.writeHead(200, {'Content-Type':'text/html', 'charset':'utf-8'})
+          res.end(data)
+          }
       })
-      //! Titlepage.html 페이지 활성화를 위한 post방식 페이지 가져오기[구동 실패]
-      fs.readFile('./static/twopage/Titlepage.html', (err, data) => {
-        if(err) {
-          console.log(err)
-        } else {
-        res.writeHead(200, {'Content-Type':'text/html', 'charset':'utf-8'})
-        res.end(data)
-        }
       })
     } else {
     res.writeHead(404);
