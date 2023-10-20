@@ -56,6 +56,7 @@ const server = http.createServer((req, res) => {
       }
     });
     })
+    //? Titlepage.css 페이지 활성화를 위한 post방식 페이지 불러오기[구동 확인]
     } else if (req.url === '/Titlepage.css' && req.method){
       let none = "";
       req.on('data', (chunk) => {
