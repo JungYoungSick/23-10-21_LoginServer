@@ -72,6 +72,21 @@ const server = http.createServer((req, res) => {
         }
       })
     })
+    } else if (req.url === '/Titlepage.js'){
+      let none = "";
+      req.on('data', (chunk) => {
+      none += chunk.toString();
+    })
+    req.on('end', () => {
+      fs.readFile('./static/twopage/Titlepage.js', (err, data) => {
+        if(err) {
+          console.log(err)
+        } else {
+          res.writeHead(200, {'content-Type':'application/javascript', 'charset':'utf-8'})
+          res.end(data)
+        }
+      })
+    })
     } else {
     res.writeHead(404);
     res.end('Not found')
