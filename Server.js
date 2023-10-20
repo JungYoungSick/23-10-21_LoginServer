@@ -37,13 +37,12 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, {'content-type':'application/javascript', 'charset':'utf-8'});
       res.end(data)
     }); 
-    //! Titlepage.html 페이지 활성화를 위한 post방식 페이지 불러오기[구동 실패]
+    //? Titlepage.html 페이지 활성화를 위한 post방식 페이지 불러오기[구동 확인]
     }else if(req.url === '/Titlepage.html' && req.method === 'POST') {
       let none = "";
-      req.on('data', (chenk) => {
-        none += chenk.toString();
+      req.on('data', (chunk) => {
+        none += chunk.toString();
       })
-      //! 아이디 작성 시 값 추가 작동 확인이 어려움.
       req.on('end', ()=> {
         const queryParseNone=qureyString.parse(none);
         const {UserID} = queryParseNone
@@ -54,9 +53,12 @@ const server = http.createServer((req, res) => {
           } else {
           res.writeHead(200, {'Content-Type':'text/html', 'charset':'utf-8'})
           res.end(data)
-          }
-      })
-      })
+          
+      }
+    });
+    })
+    } else if {
+
     } else {
     res.writeHead(404);
     res.end('Not found')
