@@ -38,7 +38,7 @@ const server = http.createServer((req, res) => {
       res.end(data)
     }); 
     //! Titlepage.html 페이지 활성화를 위한 post방식 페이지 불러오기[구동 실패]
-    }else if(req.url === './inpo.html' && req.method === 'post') {
+    }else if(req.url === '/Titlepage.html' && req.method === 'post') {
       let none = "";
       req.on('data', (chenk) => {
         none += chenk.toString();
